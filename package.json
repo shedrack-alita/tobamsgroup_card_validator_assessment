@@ -1,0 +1,39 @@
+{
+  "name": "tobamsgroup_card_validator_assessment",
+  "version": "1.0.0",
+  "description": "Backend Developer Internship Assessment Task",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "build": "tsc",
+    "test": "jest" 
+  },
+  "jest": {
+  "preset": "ts-jest",
+  "testEnvironment": "node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shedrack-alita/tobamsgroup_card_validator_assessment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/shedrack-alita/tobamsgroup_card_validator_assessment/issues"
+  },
+  "homepage": "https://github.com/shedrack-alita/tobamsgroup_card_validator_assessment#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.6.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}
