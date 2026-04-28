@@ -1,21 +1,37 @@
-import { Request, Response } from "express"; 
+import { Request, Response } from "express";
 import { validateCardNumber } from "../services/card.service";
 
-export function validateCard(req: Request, res: Response): void {
-  const { cardNumber } = req.body;
+export const validateCard = (req: Request, res: Response) => {
+  try {
+    const { cardNumber } = req.body;
 
-  if (!cardNumber || typeof cardNumber !== "string") {
-    res.status(400).json({
-      valid: false,
-      message: "Invalid card number",
+    if (typeof cardNumber !== "string" || !cardNumber.trim()) {
+      return res.status(400).json({
+        valid: false,
+        message: "Card number is required",
+      });
+    }
+
+    const isValid = validateCardNumber(cardNumber);
+
+    if (!isValid) {
+      return res.status(400).json({
+        valid: false,
+        message: "Invalid card number",
+      });
+    }
+
+    return res.status(200).json({
+      valid: true,
+      message: "Card number is valid",
     });
-    return;
+
+  } catch (error) {
+    console.error("Card validation error:", error);
+
+    return res.status(500).json({
+      valid: false,
+      message: "Internal server error",
+    });
   }
-
-  const isValid = validateCardNumber(cardNumber);
-
-  res.status(200).json({
-    valid: isValid,
-    message: isValid ? "Card number is valid" : "Card number is invalid",
-  });
-}
+};

@@ -1,23 +1,23 @@
 export function validateCardNumber(cardNumber: string): boolean {
-  const cardDigits = cardNumber.replace(/\s+/g, "");
+  const digits = cardNumber.replace(/\s+/g, "");
 
-  if (!/^\d+$/.test(cardDigits) || cardDigits.length < 13 || cardDigits.length > 19) {
+  if (!/^\d{13,16}$/.test(digits)) {
     return false;
   }
 
   let sum = 0;
-  let shouldDouble = false; 
+  let doubleDigit = false;
 
-  for (let i = cardDigits.length - 1; i >= 0; i--) {
-    let digit = parseInt(cardDigits[i], 10); 
+  for (let i = digits.length - 1; i >= 0; i--) {
+    let digit = Number(digits[i]);
 
-    if (shouldDouble) { 
+    if (doubleDigit) {
       digit *= 2;
-      if (digit > 9) digit -= 9; //
+      if (digit > 9) digit -= 9;
     }
 
     sum += digit;
-    shouldDouble = !shouldDouble;
+    doubleDigit = !doubleDigit;
   }
 
   return sum % 10 === 0;

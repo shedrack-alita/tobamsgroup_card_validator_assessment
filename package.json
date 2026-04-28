@@ -4,7 +4,7 @@
   "description": "Backend Developer Internship Assessment Task",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node src/server.ts",
+    "start": "ts-node src/app.ts",
     "build": "tsc",
     "test": "jest" 
   },
