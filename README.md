@@ -14,7 +14,7 @@ npm start
 **HTTP Method:** `POST`  
 **URL:** `http://localhost:4000/card/validate`
 
-###Required Request body:
+### Required Request body:
 ```json
 { 
     "cardNumber": "4532015112830366" 
