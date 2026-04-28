@@ -6,7 +6,7 @@ This is REST API that validates card numbers using the Luhn algorithm.
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
 ## How to Test the Endpoint on Postman or any platform of your choice
