@@ -1,23 +1,26 @@
 export function validateCardNumber(cardNumber: string): boolean {
   const digits = cardNumber.replace(/\s+/g, "");
 
-  if (!/^\d{13,16}$/.test(digits)) {
+  // Check if the card number consists of 13 to 16 digits and contains only numbers
+  const cardNumberPattern = /^\d{13,16}$/;
+  if (!cardNumberPattern.test(digits)) {
     return false;
   }
 
   let sum = 0;
-  let doubleDigit = false;
+  let digitToDouble = false;
 
+  //Loop through the digits from right to left and apply the Luhn algorithm
   for (let i = digits.length - 1; i >= 0; i--) {
     let digit = Number(digits[i]);
 
-    if (doubleDigit) {
+    if (digitToDouble) {
       digit *= 2;
       if (digit > 9) digit -= 9;
     }
 
     sum += digit;
-    doubleDigit = !doubleDigit;
+    digitToDouble = !digitToDouble;
   }
 
   return sum % 10 === 0;
