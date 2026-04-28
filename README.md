@@ -12,7 +12,7 @@ npm start
 ## How to Test the Endpoint on Postman or any platform of your choice
 
 **HTTP Method:** `POST`  
-**URL:** `http://localhost:4000/card/validate`
+**URL:** `http://localhost:3000/card/validate`
 
 ### Required Request body:
 ```json
