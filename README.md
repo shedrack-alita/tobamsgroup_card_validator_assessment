@@ -12,7 +12,8 @@ npm run dev
 ## How to Test the Endpoint on Postman or any platform of your choice
 
 **HTTP Method:** `POST`  
-**URL:** `http://localhost:3000/card/validate`
+**Local URL:** `http://localhost:3000/card/validate`
+**Live URL:** `https://tobamsgroupcardvalidatorassessment-production.up.railway.app/card/validate`
 
 ### Required Request body:
 ```json
